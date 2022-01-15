@@ -1,0 +1,26 @@
+
+<div class="col-md-12">
+  <div class="form-outline mb-4">
+    <h3>Login Section</h3>
+  </div>
+  
+  <div class="form-outline mb-4">
+    <input type="email" id="form1Example13" class="form-control form-control-lg" />
+    <label class="form-label" for="form1Example13">Email address</label>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input type="password" id="form1Example23" class="form-control form-control-lg" />
+    <label class="form-label" for="form1Example23">Password</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg btn-block w-100" (click)="redirect('home-page')">Sign in</button>
+
+  <div class="divider d-flex align-items-center my-4">
+    <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+  </div>
+
+  <a class="btn btn-primary btn-lg btn-block w-100" style="background-color: #3b5998" (click)="redirect('register-page')" role="button">
+    <i class="fab fa-facebook-f me-2"></i>Register
+  </a>
+</div>
