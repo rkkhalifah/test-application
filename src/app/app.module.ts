@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PublicModule } from './module/public/public.module';
+import { AuthenticatedModule } from './module/authenticated/authenticated.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 @NgModule({
@@ -13,7 +16,10 @@ import { PublicModule } from './module/public/public.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PublicModule
+    PublicModule,
+    AuthenticatedModule,
+    BrowserAnimationsModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,3 +5,8 @@
   height: 1px;
   background: #eee;
 }
+
+.btn[disabled] {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}

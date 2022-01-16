@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { PublicComponent } from './public.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,6 +14,8 @@ import { RegisterComponent } from './register/register.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: []
 })
