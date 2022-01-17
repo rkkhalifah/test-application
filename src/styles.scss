@@ -2,6 +2,7 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~font-awesome/css/font-awesome.css';
 @import "~@ng-select/ng-select/themes/default.theme.css";
+@import '~ngx-toastr/toastr';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin-top: 20px; margin-bottom: 20px; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
 import { Employee } from 'src/app/model/employee/employee.model';
+import { NotificationService } from '../notification/notification.service';
+
 
 @Injectable({
     providedIn: 'root',
   })
 
 export class CommonService {
+
+    constructor(
+        private notificationService: NotificationService
+      ) { }
+    
 
     loginService(email: string, password: string){
         let datas = JSON.parse(localStorage.getItem("user"));
@@ -54,7 +61,7 @@ export class CommonService {
                 firstName: this.generateName(),
                 lastName: this.generateName(),
                 email: null,
-                birthDate: '27-01-1993',
+                birthDate: new Date(),
                 basicSalary: this.getRandomInt(1000000, 19000000),
                 status: 'Single',
                 group: 'Group A',
@@ -76,7 +83,6 @@ export class CommonService {
     }
 
     capFirst(string: string) {
-        debugger
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
     
@@ -85,5 +91,47 @@ export class CommonService {
         var name = this.capFirst(name1[this.getRandomInt(0, name1.length - 1)]);
 
         return name;
+    }
+
+    getEmployee(username: string){
+        let employeeList = JSON.parse(localStorage.getItem("employee"));
+
+        for(let i in employeeList){
+            let employee: Employee = employeeList[i];
+
+            if(employee.username == username) return employee;
+        }
+    };
+
+    deleteEmployee(username: string){
+        let employeeList = JSON.parse(localStorage.getItem("employee"));
+
+        for(let i in employeeList){
+            let employee: Employee = employeeList[i];
+
+            if(employee.username == username){
+                employeeList.splice(i, 1);
+                localStorage.setItem('employee', JSON.stringify(employeeList));
+
+                this.notificationService.showNotification('success', 'success', 'Employee successfully deleted');
+            }
+        }
+    };
+
+    getGroup(){
+        let group = [
+            { id: 1, name: 'Group A' },
+            { id: 2, name: 'Group B' },
+            { id: 3, name: 'Group C' },
+            { id: 4, name: 'Group D' },
+            { id: 5, name: 'Group E' },
+            { id: 6, name: 'Group F' },
+            { id: 7, name: 'Group G' },
+            { id: 8, name: 'Group H' },
+            { id: 9, name: 'Group I' },
+            { id: 10, name: 'Group J' },
+        ];
+        
+        return group
     }
 }

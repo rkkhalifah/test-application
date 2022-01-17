@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonService } from '../../../service/common/common.service';
+import { NotificationService } from 'src/app/service/notification/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -17,9 +18,11 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private commonService: CommonService,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit() {
+    localStorage.removeItem('token');
     this.loginForm = this.formBuilder.group({
       email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
       password: new FormControl('', Validators.required),
@@ -46,10 +49,14 @@ export class LoginComponent implements OnInit {
 
     let isAuthenticated: boolean = this.commonService.loginService(email, password);
 
-    if(isAuthenticated) 
+    if(isAuthenticated) {
+      this.notificationService.showNotification('success', 'Loged in !', 'Login Success');
       this.router.navigate(['/home']);
-    else
-      console.log('not authenticate !');
+    }
+    else{
+      this.notificationService.showNotification('error', 'UnAuthorize', 'Invalid email or Password');
+    }
+     
   }
 
 }

@@ -7,12 +7,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { DatepickerModule } from 'ngx-date-picker';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { DetailEmployeeComponent } from './detail-employee/detail-employee.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    DetailEmployeeComponent
   ],
   imports: [
     BrowserModule,

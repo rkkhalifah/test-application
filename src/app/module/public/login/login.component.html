@@ -1,26 +1,32 @@
 
-<form [formGroup]="loginForm">
-  <div class="form-outline mb-4">
-    <h3>Login Section</h3>
-  </div>
-  
-  <div class="form-outline mb-4">
-    <input type="email" id="email" class="form-control form-control-lg" formControlName="email"/>
-    <label class="form-label" for="email">Email address</label>
-  </div>
+<html>
+  <body>
+    <div class="container">
+      <form [formGroup]="loginForm">
+        <div class="form-outline mb-4">
+          <h3>Login Section</h3>
+        </div>
+        
+        <div class="form-outline mb-4">
+          <input type="email" id="email" class="form-control form-control-lg" formControlName="email"/>
+          <label class="form-label" for="email">Email address</label>
+        </div>
 
-  <div class="form-outline mb-4">
-    <input type="password" id="password" class="form-control form-control-lg" formControlName="password"/>
-    <label class="form-label" for="password">Password</label>
-  </div>
+        <div class="form-outline mb-4">
+          <input type="password" id="password" class="form-control form-control-lg" formControlName="password"/>
+          <label class="form-label" for="password">Password</label>
+        </div>
 
-  <button type="submit" class="btn btn-primary btn-lg btn-block w-100" (click)="signIn()" [disabled]="!loginForm.valid" [class.disabled]="!loginForm.valid">Sign in</button>
+        <button type="submit" class="btn btn-primary btn-lg btn-block w-100" (click)="signIn()" [disabled]="!loginForm.valid" [class.disabled]="!loginForm.valid">Sign in</button>
 
-  <div class="divider d-flex align-items-center my-4">
-    <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-  </div>
+        <div class="divider d-flex align-items-center my-4">
+          <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+        </div>
 
-  <a class="btn btn-primary btn-lg btn-block w-100" style="background-color: #3b5998" (click)="redirect('register-page')" role="button">
-    <i class="fab fa-facebook-f me-2"></i>Register
-  </a>
-</form>
+        <a class="btn btn-primary btn-lg btn-block w-100" style="background-color: #3b5998" (click)="redirect('register-page')" role="button">
+          <i class="fab fa-facebook-f me-2"></i>Register
+        </a>
+      </form>
+    </div>
+  </body>
+</html>

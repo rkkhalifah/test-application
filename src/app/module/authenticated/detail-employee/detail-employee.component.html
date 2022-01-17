@@ -2,7 +2,7 @@
   <body>
     <div class="container">
       <div class="col-md-12">
-        <h2>Add Employee</h2>
+        <h2>Detail Employee</h2>
       </div>
 
       <div class="row">
@@ -11,47 +11,46 @@
         </div>
 
         <div class="col-md-8">
-          <form [formGroup]="employeeForm">
             <div class="form-group">
               <label for="username">Username</label>
               <input type="text"  class="form-control" id="username"
-                formControlName="username" name="username"/>
+                [(ngModel)]="employee.username" name="username"/>
             </div>
 
             <div class="form-group">
               <label for="firstName">First Name</label>
               <input type="text"  class="form-control" id="firstName"
-                formControlName="firstName" name="firstName"/>
+                [(ngModel)]="employee.firstName" name="firstName"/>
             </div>
 
             <div class="form-group">
               <label for="lastName">Last Name</label>
               <input type="text"  class="form-control" id="lastName"
-                formControlName="lastName" name="lastName"/>
+                [(ngModel)]="employee.lastName" name="lastName"/>
             </div>
 
             <div class="form-group">
               <label for="email">Email</label>
               <input type="text"  class="form-control" id="email"
-                formControlName="email" name="email"/>
+                [(ngModel)]="employee.email" name="email"/>
             </div>
 
             <div class="form-group">
               <label for="birthDate">Birth Date</label>
               <input type="date"  class="form-control" id="birthDate"
-                formControlName="birthDate" name="birthDate"/>
+                [(ngModel)]="employee.birthDate" name="birthDate" />
             </div>
 
             <div class="form-group">
               <label for="basicSalary">Basic Salary</label>
               <input type="text"  class="form-control" id="basicSalary"
-                formControlName="basicSalary" name="basicSalary"/>
+                [(ngModel)]="employee.basicSalary" name="basicSalary" valye/>
             </div>
             
             <div class="form-group">
               <label for="status">Status</label>
               <input type="text"  class="form-control" id="status"
-                formControlName="status" name="status"/>
+                [(ngModel)]="employee.status" name="status"/>
             </div>
             
             <div class="form-group">
@@ -60,25 +59,23 @@
                 [items]="group" 
                 bindLabel="name" 
                 bindValue="name" 
-                formControlName="group">
+                [(ngModel)]="employee.group">
               </ng-select>
             </div>
 
             <div class="form-group">
               <label for="description">Description</label>
               <input type="text"  class="form-control" id="description"
-                formControlName="description" name="description"/>
+                [(ngModel)]="employee.description" name="description"/>
             </div>
 
             <div class="col-md-2 offset-md-10 mb-5">
               <div class="btn-group mt-2" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-outline-success btn-block w-100" (click)="addEmployee()" [disabled]="!employeeForm.valid" [class.disabled]="!employeeForm.valid">Save</button>
+                <button type="button" class="btn btn-outline-success btn-block w-100" (click)="saveEmployee()">Save</button>
                 &nbsp;
                 <button type="button" class="btn btn-outline-primary btn-block w-100" (click)="goToPage()">Back</button>
               </div>
             </div>
-
-          </form>  
         </div>
         
       </div>

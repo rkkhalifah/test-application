@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/model/employee/employee.model';
 import { CommonService } from 'src/app/service/common/common.service';
+import { NotificationService } from 'src/app/service/notification/notification.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +14,11 @@ export class HomeComponent implements OnInit {
   firstName: String;
   p: number = 1;
 
-  constructor(private commonService: CommonService, private router: Router) { }
+  constructor(
+    private commonService: CommonService, 
+    private router: Router, 
+    private notificationService: NotificationService
+  ) { }
 
   ngOnInit() {
     this.jsonEmployee();
@@ -50,19 +55,33 @@ export class HomeComponent implements OnInit {
     this.reverse = !this.reverse;
   }
 
-  goToPage(page: string){
+  goToPage(page: string, username: string){
     switch(page){
       case 'add-employee':{
         this.router.navigate(['/add-employee']);
       }; break;
       case 'edit':{
-        this.router.navigate(['/add-employee']);
+        this.router.navigate(['/detail-employee'], {
+          queryParams: {
+            username: username,
+          },
+          replaceUrl: true,
+        });
       }; break;
       case 'delete':{
-        this.router.navigate(['/add-employee']);
+        this.notificationService.showNotification('error', 'Coming Soon', 'Delete Page is Not Available');
+      }; break;
+      case 'login':{
+        this.router.navigate(['/login']);
+        this.notificationService.showNotification('error', 'logout', 'User loged out !');
       }; break;
     }
-    
+  }
+
+  async delete(username: string){
+    await this.commonService.deleteEmployee(username);
+
+    this.ngOnInit();
   }
 
 }

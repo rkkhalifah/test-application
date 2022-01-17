@@ -7,6 +7,7 @@ import { PublicModule } from './module/public/public.module';
 import { AuthenticatedModule } from './module/authenticated/authenticated.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrderModule } from 'ngx-order-pipe';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { OrderModule } from 'ngx-order-pipe';
     PublicModule,
     AuthenticatedModule,
     BrowserAnimationsModule,
-    OrderModule
+    OrderModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
